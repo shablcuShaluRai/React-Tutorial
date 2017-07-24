@@ -4,22 +4,25 @@ import './App.css';
 // stateful Component example
 
 class App extends Component {
-//state can be changed and updated.
-//state  is mutable
-  state = {
-    header : "header from state",
-    content : "content from state"
-  }
+//props is immutable.
+//it can not be changed .
+
   render(){
     return(
 <div>
-<h1> {this.state.header}</h1>
-<h2>{this.state.content}</h2>
+<h1> {this.props.header}</h1>
+<h2>{this.props.content}</h2>
 </div>
 
-    )
+    );
 
   }}
+
+  App.defaultProps = {
+   header: "Header from props...",
+   content:"Content from props..."
+}
+
   //State is the place where the data comes from.
   //state can be changed and updated.
 /*  state = {
