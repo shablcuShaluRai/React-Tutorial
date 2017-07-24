@@ -1,102 +1,59 @@
 import React, { Component } from 'react';
 
 import './App.css';
-// stateful Component example
+
+//We are setting state in our parent component and passing it down the component tree using props. 
 
 class App extends Component {
-//props is immutable.
-//it can not be changed .
+  state = {
+    header : "header can be accessed by props" ,
+    content : " content can be accessed by props"
+  }
 
   render(){
     return(
+
 <div>
-<h1> {this.props.header}</h1>
-<h2>{this.props.content}</h2>
-</div>
-
-    );
-
-  }}
-
-  App.defaultProps = {
-   header: "Header from props...",
-   content:"Content from props..."
-}
-
-  //State is the place where the data comes from.
-  //state can be changed and updated.
-/*  state = {
-    data : [
-      {    "id" : "1",
-          "name" : "shalu",
-          "age" : "21"
-      },
-      {
-        "id" : "2",
-        "name":"sahil",
-        "age" : "19"
-      },
-      {
-        "id" :"3",
-        "name": "Ayush",
-        "age" : "9"
-      }
-    ]
-  }
-  render() {
-    return (*/
-{/*
-<div className = "App">
-<Header/>
-<table>
-<tbody>
-{/* it takes each element of data array and calling the tablerow jsx on every element.*/}
-{/*//e.g <TableRow key=0 data={id: "1",name : "shalu",age = "21"}*/}
-
-
-{/*{this.state.data.map((person,index) =>
-  <TableRow
-  key = {index}
-  data = {person}
-  />
-
-)}
-</tbody>
-</table>
-</div>
-   )
-     }
-  }
-
-  class   Header extends Component {
-    render(){
-      return(
-
-<div className = "App" >
-<h1 className = "rcorners1"> Stateful Component </h1>
+<Header
+/*Here data has passed (this.state.header: because it is property of state) in headers*/
+headers = {this.state.header}
+/>
+<Content
+contents = {this.state.content}
+/>
 
 </div>
 
-      )
-    }
-  }
-
-class TableRow extends Component{
-  render(){
-    return(
-    <tr>
-<td>{this.props.data.id}</td>
-<td>{this.props.data.name}</td>
-<td>{this.props.data.age}</td>
-    </tr>
 
 
     )
   }
-  */}
+  }
 
 
+class Header extends Component {
+  render(){
+    return(
+      <div>
+      {/* here data accesses by using  of props,
+          it renders  the value of headers.
+        */}
 
+      <h1>{this.props.headers}</h1>
+      </div>
+    )
+  }
+}
+
+class Content extends Component{
+  render(){
+    return(
+      <div>
+      <h2>{this.props.contents}</h2>
+      </div>
+    )
+  }
+}
 
 
 export default App;
