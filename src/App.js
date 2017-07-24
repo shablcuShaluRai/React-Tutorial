@@ -4,8 +4,25 @@ import './App.css';
 // stateful Component example
 
 class App extends Component {
-  //State is the place where the data comes from.
+//state can be changed and updated.
+//state  is mutable
   state = {
+    header : "header from state",
+    content : "content from state"
+  }
+  render(){
+    return(
+<div>
+<h1> {this.state.header}</h1>
+<h2>{this.state.content}</h2>
+</div>
+
+    )
+
+  }}
+  //State is the place where the data comes from.
+  //state can be changed and updated.
+/*  state = {
     data : [
       {    "id" : "1",
           "name" : "shalu",
@@ -24,8 +41,8 @@ class App extends Component {
     ]
   }
   render() {
-    return (
-
+    return (*/
+{/*
 <div className = "App">
 <Header/>
 <table>
@@ -33,7 +50,8 @@ class App extends Component {
 {/* it takes each element of data array and calling the tablerow jsx on every element.*/}
 {/*//e.g <TableRow key=0 data={id: "1",name : "shalu",age = "21"}*/}
 
-{this.state.data.map((person,index) =>
+
+{/*{this.state.data.map((person,index) =>
   <TableRow
   key = {index}
   data = {person}
@@ -72,7 +90,8 @@ class TableRow extends Component{
 
     )
   }
-}
+  */}
+
 
 
 
