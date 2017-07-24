@@ -1,44 +1,80 @@
 import React, { Component } from 'react';
 
 import './App.css';
-// stateless Component example
+// stateful Component example
 
 class App extends Component {
+  //State is the place where the data comes from.
+  state = {
+    data : [
+      {    "id" : "1",
+          "name" : "shalu",
+          "age" : "21"
+      },
+      {
+        "id" : "2",
+        "name":"sahil",
+        "age" : "19"
+      },
+      {
+        "id" :"3",
+        "name": "Ayush",
+        "age" : "9"
+      }
+    ]
+  }
   render() {
     return (
-      // div is jsx code
-    <div>
-{/*Header  and Content  component called inside the jsx */}
-    <Header/>
-   <Content/>
 
-    </div>
-    );
+<div className = "App">
+<Header/>
+<table>
+<tbody>
+{/* it takes each element of data array and calling the tablerow jsx on every element.*/}
+{/*//e.g <TableRow key=0 data={id: "1",name : "shalu",age = "21"}*/}
+
+{this.state.data.map((person,index) =>
+  <TableRow
+  key = {index}
+  data = {person}
+  />
+
+)}
+</tbody>
+</table>
+</div>
+   )
+     }
   }
-}
 
-//it is also a component
-class Header extends Component {
+  class   Header extends Component {
+    render(){
+      return(
+
+<div className = "App" >
+<h1 className = "rcorners1"> Stateful Component </h1>
+
+</div>
+
+      )
+    }
+  }
+
+class TableRow extends Component{
   render(){
     return(
-      <div className = "App">
-      <h1 className = "rcorners1"> Header </h1>
-</div>
+    <tr>
+<td>{this.props.data.id}</td>
+<td>{this.props.data.name}</td>
+<td>{this.props.data.age}</td>
+    </tr>
+
 
     )
   }
+}
 
-  }
-  class Content extends Component {
-     render(){
-       return(
-         <div>
-         <p> This is content</p>
-         <h2> content </h2>
-       </div>
-     )
-     }
-  }
+
 
 
 export default App;
