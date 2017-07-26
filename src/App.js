@@ -2,58 +2,47 @@ import React, { Component } from 'react';
 
 import './App.css';
 
-//We are setting state in our parent component and passing it down the component tree using props. 
+//We are setting state in our parent component and passing it down the component tree using props.
 
 class App extends Component {
-  state = {
-    header : "header can be accessed by props" ,
-    content : " content can be accessed by props"
-  }
+render(){
+  return(
+    <div>
+           <h3>Array: {this.props.propArray}</h3>
+           <h3>Bool: {this.props.propBool ? "True..." : "False..."}</h3>
+           <h3>Func: {this.props.propFunc(3)}</h3>
+           <h3>Number: {this.props.propNumber}</h3>
+           <h3>String: {this.props.propString}</h3>
+           <h3>Object: {this.props.propObject.objectName1}</h3>
+           <h3>Object: {this.props.propObject.objectName2}</h3>
+           <h3>Object: {this.props.propObject.objectName3}</h3>
+        </div>
+     );
 
-  render(){
-    return(
-
-<div>
-<Header
-/*Here data has passed (this.state.header: because it is property of state) in headers*/
-headers = {this.state.header}
-/>
-<Content
-contents = {this.state.content}
-/>
-
-</div>
-
-
-
-    )
-  }
-  }
-
-
-class Header extends Component {
-  render(){
-    return(
-      <div>
-      {/* here data accesses by using  of props,
-          it renders  the value of headers.
-        */}
-
-      <h1>{this.props.headers}</h1>
-      </div>
-    )
-  }
+}
 }
 
-class Content extends Component{
-  render(){
-    return(
-      <div>
-      <h2>{this.props.contents}</h2>
-      </div>
-    )
-  }
-}
 
+App.propTypes = {
+   propArray: React.PropTypes.array.isRequired,
+   propBool: React.PropTypes.bool.isRequired,
+   propFunc: React.PropTypes.func,
+   propNumber: React.PropTypes.number,
+   propString: React.PropTypes.string,
+   propObject: React.PropTypes.object
+}
+App.defaultProps = {
+   propArray: [1,2,3,4,5],
+   propBool: true,
+   propFunc: function(e){return e},
+   propNumber: 1,
+   propString: "String value...",
+
+   propObject: {
+      objectName1:"objectValue1",
+      objectName2: "objectValue2",
+      objectName3: "objectValue3"
+   }
+}
 
 export default App;
