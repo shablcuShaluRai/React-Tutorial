@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import './App.css';
 
-//We are setting state in our parent component and passing it down the component tree using props.
 
 class App extends Component {
 render(){
@@ -22,6 +21,15 @@ render(){
 }
 }
 
+// we can declare that a prop is a specific JS primitive. By default, these
+  // are all optional.
+//  If I’m using a component written by another developer I have to figure out what props that component want, what’s required and also the correct type.
+// React has a solution for this and its called propTypes. PropTypes defines type and which props are required.
+// This benefits the future all developer using  component in two ways:
+
+//1. we can easily open up a component and check which props are required and what type they should be.
+//2. When things get messed up React will give  an awesome error message in the console, 
+//saying which props is wrong/missing plus the render method that caused the problem.
 
 App.propTypes = {
    propArray: React.PropTypes.array.isRequired,
