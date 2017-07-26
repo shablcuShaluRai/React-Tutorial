@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Content from "./Content"
 
 import './App.css';
 
@@ -21,9 +21,13 @@ updateState = this.updateState.bind(this)
   render(){
     return(
 <div>
-<input type = "text" value = {this.state.data}
-onChange = {this.updateState} />
-<h4>{this.state.data}</h4>
+<Content
+dataProp = {this.state.data}
+onUpdate = {this.updateState}
+
+
+/>
+
 </div>
 
 
