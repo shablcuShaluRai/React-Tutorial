@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
+import ReactDOM from "react-dom"
 
 import './App.css';
 
-//Sometimes we want to update the component manually. we can achieve this by using forceUpdate() method.
+//
 class App extends Component {
   //The bind() method creates a new function that, when called, has its this keyword set to the provided value,
   // with a given sequence of arguments preceding any provided when the new function is called.
-forceUpdateHandler = this.forceUpdateHandler.bind(this);
+  findDomNodeHandler = this.findDomNodeHandler.bind(this);
 
-
-forceUpdateHandler(){
-  // By default, when our component's state or props change, our component will re-render.
-  // If our render() method depends on some other data, we can tell React that the component needs re-rendering by calling forceUpdate().
-  this.forceUpdate();// it depends on hte Math.random().
-}
+ findDomNodeHandler(){
+   var myDiv = document.getElementById('myDiv');
+   ReactDOM.findDOMNode(myDiv).style.color = 'green';
+ }
 
 render(){
   return(
     <div>
-    <button onClick = {this.forceUpdateHandler}>Random Number</button>
-     <h4>Random number: {Math.random()}</h4>
+    //once we click on the buuton it call the findDomNodeHandler() ,and the color of div will change.
+    <button onClick = {this.findDomNodeHandler}>find Dom Node</button>
+     <div id= "myDiv"> hello,i m div </div>
     </div>
   );
    }
