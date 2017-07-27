@@ -5,10 +5,10 @@ class Content extends Component{
 
 render(){
   return(
-<div>
-<input type = "text" value = {this.props.dataProp} onChange = {this.props.onUpdate}/>
-<h3> {this.props.dataProp}</h3>
-</div>
+    <div>
+       <button onClick= {this.props.onUpdate}>click</button>
+       <h3> {this.props.dataProp}</h3>
+   </div>
   )
 }
 

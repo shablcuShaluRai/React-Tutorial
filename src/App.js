@@ -15,9 +15,9 @@ state={
 
 
 //updateState is used to update the input value of form
- updateState = (e)=>{
+ updateState = ()=>{
   //  The target event property returns the element that triggered the event.
-   this.setState({data:e.target.value})
+   this.setState({data: ' updated from child component '})
  }
 
   render(){
