@@ -8,12 +8,14 @@ class App extends Component {
 state={
   data: 'intial data  '
 }
-//The bind() method creates a new function that, when called, has its this keyword set to the provided value,
-//with a given sequence of arguments preceding any provided when the new function is called.
+////////  using Arrow function///////
+//An arrow function expression has a shorter syntax than a function expression and does not bind its own this,
+//arguments, super, or new.target. These function expressions are best suited for non-method functions,
+// and they cannot be used as constructors.
 
-updateState = this.updateState.bind(this)
+
 //updateState is used to update the input value of form
- updateState(e){
+ updateState = (e)=>{
   //  The target event property returns the element that triggered the event.
    this.setState({data:e.target.value})
  }
